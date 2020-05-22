@@ -16,16 +16,19 @@
       "variablestore": [{
           "name": "iaas_classic_username",
           "value": "IAAS_USER",
+          "secure": true,
           "type": "string"
         },
         {
           "name": "iaas_classic_api_key",
           "value": "IAAS_API_KEY",
+          "secure": true,
           "type": "string"
         },
         {
           "name": "public_key",
           "value": "PUBLIC_KEY",
+          "secure": true,
           "type": "string"
         },
         {
