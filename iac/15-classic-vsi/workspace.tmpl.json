@@ -1,0 +1,53 @@
+{
+    "name": "classic_vsi_master_slave",
+    "type": [
+      "terraform_v0.12"
+    ],
+    "description": "Sample workspace to create VSIs from templates and install ibm cloud and kube tooling",
+    "tags": [
+      "env:testing"
+    ],
+    "template_repo": {
+      "url": "https://github.com/timro/cloud-enterprise-examples/tree/master/iac/15-classic-vsi"
+    },
+    "template_data": [{
+      "folder": ".",
+      "type": "terraform_v0.12",
+      "variablestore": [{
+          "name": "iaas_classic_username",
+          "value": "IAAS_USER",
+          "type": "string"
+        },
+        {
+          "name": "iaas_classic_api_key",
+          "value": "IAAS_API_KEY",
+          "type": "string"
+        },
+        {
+          "name": "public_key",
+          "value": "PUBLIC_KEY",
+          "type": "string"
+        },
+        {
+          "name": "region",
+          "value": "REGION",
+          "type": "string"
+        },
+        {
+          "name": "datacenter",
+          "value": "DATACENTER",
+          "type": "string"
+        },
+        {
+          "name": "public_vlan_id",
+          "value": "PUBLIC_VLAN",
+          "type": "string"
+        },
+        {
+          "name": "private_vlan_id",
+          "value": "PRIVATE_VLAN",
+          "type": "string"
+        }
+      ]
+    }]
+  }

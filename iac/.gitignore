@@ -2,3 +2,4 @@ terraform_key*.json
 .terraform
 *.tfstate*
 *.auto.tfvars
+workspace.json
