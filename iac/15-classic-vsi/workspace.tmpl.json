@@ -8,7 +8,7 @@
       "env:testing"
     ],
     "template_repo": {
-      "url": "https://github.com/timro/cloud-enterprise-examples/tree/master/iac/15-classic-vsi"
+      "url": "https://github.com/timroster/cloud-enterprise-examples/tree/master/iac/15-classic-vsi"
     },
     "template_data": [{
       "folder": ".",

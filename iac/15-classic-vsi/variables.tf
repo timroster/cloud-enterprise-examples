@@ -29,12 +29,12 @@ variable "master" {
   type = map(string)
   default = {
     nodes                = "1"
-    cpu_cores            = "1"
-    boot_size            = "25" // GB
-    opt_disk             = "25"
+    cpu_cores            = "8"
+    boot_size            = "100" // GB
+    opt_disk             = "200"
     local_disk           = false
-    memory               = "2048"
-    network_speed        = "100"
+    memory               = "32768"
+    network_speed        = "1000"
     private_network_only = false
     hourly_billing       = true
   }
@@ -45,23 +45,13 @@ variable "slave" {
   type = map(string)
   default = {
     nodes                = "1"
-    cpu_cores            = "1"
-    boot_size            = "25" // GB
-    opt_disk             = "25"
+    cpu_cores            = "8"
+    boot_size            = "100" // GB
+    opt_disk             = "50"
     local_disk           = false
-    memory               = "2048"
-    network_speed        = "100"
+    memory               = "32768"
+    network_speed        = "1000"
     private_network_only = false
     hourly_billing       = true
   }
 }
-
-# uncomment this entry to use a previously uploaded classic ssh key
-#
-#variable "key_name" {
-#  description = "Name or reference of SSH key to provision softlayer instances with"
-#  default     = "timrosl_ssh_key"
-#}
-
-# Variable for adding a new classic ssh key given an input value
-variable "public_key" {}

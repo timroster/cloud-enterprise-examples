@@ -13,3 +13,15 @@ variable "iaas_classic_username" {
 variable "iaas_classic_api_key" {
   default = ""
 }
+
+# Variable for adding a new classic ssh key given an input value
+variable "public_key" {
+  default = ""
+}
+
+# uncomment this entry to use a previously uploaded classic ssh key
+#
+#variable "key_name" {
+#  description = "Name or reference of SSH key to provision softlayer instances with"
+#  default     = "my_ssh_key"
+#}
