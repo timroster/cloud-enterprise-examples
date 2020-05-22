@@ -13,7 +13,7 @@ Check list for every README:
 
 This example shows how to create one or more master nodes and one or more slave nodes using IBM classic infrastructure services. This pattern will require the classic infrastructure user id and classic infrastructure api key of a member of the account. This can be the account owner, or another user which has been assigned classic infrastructure "superuser" permissions in the **Access (IAM) -> Users -> (specific user) -> Classic Infrastructure** tab.
 
-Depending on preference, this code can be used with either local terraform cli or for users who don't usually use terraform, the code can be deployed using a Schematics workspace. Using Schematics is easy for users new to Infrastructure as Code and it's highly recommended to quickly get things going.
+Depending on preference, this code can be used with either local terraform cli or for users who don't usually use terraform, the code can be deployed using an IBM Cloud [Schematics](https://cloud.ibm.com/docs/schematics?topic=schematics-about-schematics) workspace. Using Schematics is easy for users new to Infrastructure as Code and it's highly recommended to quickly get things going.
 
 The only requirement to use Schematics is the `ibmcloud` cli and the `schematics` plugin - the first two items in [General Requirements](#general-requirements)
 
@@ -58,13 +58,13 @@ This project requires the following actions to configure properties before runni
 
 1. Go to the IBM Cloud **Access (IAM)** menu and navigate to a user that has permissions to create classic infrastructure. Scroll down on the first panel the the API Keys section. If a **Create Classic infrastructure key** button is displayed, create a key and make a note of the user name and the api key. Otherwise, scroll down in the list of API keys and select the **Classic infrastructure key** to view the details. Update the `workspace.json` file `IAAS_USER` with the user id and the `IAAS_API_KEY` with the api key. For local terraform, add these values to the `credentials.tf` file or use a `secrets.auto.tfvars` file.
 
-> after adding these values to the `credentials.tf` file, be sure not to **ever** commit and push this file to a public repository. It's safer to use `secrets.auto.tfvars` which is excluded by a `.gitnore`
+    > after adding these values to the `credentials.tf` file, be sure not to **ever** commit and push this file to a public repository. It's safer to use `secrets.auto.tfvars` which is excluded by a `.gitnore`
 
 1. To create VMs in the same datacenter and vlans as workers for your Kubernetes/OpenShift cluster, open the [Clusters view](https://cloud.ibm.com/kubernetes/clusters) and select the desired cluster. Go to the **Worker Nodes** panel and expand one of the workers:
 
-![Worker Node detail](images/worker_detail.png)
+    ![Worker Node detail](images/worker_detail.png)
 
-Make a note of the datacenter, public vlan id and private vlan id. Use these values to update the `workspace.json` file `DATACENTER`, `PUBLIC_VLAN` and `PRIVATE_VLAN` values. Last, update the `REGION` to match the IBM Cloud region for your cluster (e.g. `us-south`, `us-east`, etc.) For local terraform add these values to the `variables.tf` file.
+    Make a note of the datacenter, public vlan id and private vlan id. Use these values to update the `workspace.json` file `DATACENTER`, `PUBLIC_VLAN` and `PRIVATE_VLAN` values. Last, update the `REGION` to match the IBM Cloud region for your cluster (e.g. `us-south`, `us-east`, etc.) For local terraform add these values to the `variables.tf` file.
 
 ## How to deploy with Schematics
 
