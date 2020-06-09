@@ -1,13 +1,13 @@
 #!/bin/sh
 
 # some partitioning and mounting magick - commented for now as not adding addl storage
-#/sbin/sfdisk /dev/vdb << EOF
+#/sbin/sfdisk /dev/vdd << EOF
 #1,;
 #EOF
-#/sbin/mkfs -t ext4 /dev/vdb1
+#/sbin/mkfs -t ext4 /dev/vdd1
 #/bin/mkdir /opt
-#/bin/mount /dev/vdb1 /opt
-#/bin/echo "/dev/vdb1    /opt    ext4    defaults    0  2" >> /etc/fstab
+#/bin/mount /dev/vdd1 /opt
+#/bin/echo "/dev/vdd1    /opt    ext4    defaults    0  2" >> /etc/fstab
 
 #
 # apply fixes and install desktop and tigervnc
