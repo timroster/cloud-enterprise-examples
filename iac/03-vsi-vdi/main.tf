@@ -1,28 +1,20 @@
 provider "ibm" {
   generation = 2
-  region     = "us-south"
+  region     = var.region
 }
 
 data "ibm_is_ssh_key" "iac_test_key" {
   name       = var.ssh_keyname
 }
 
-resource "ibm_is_instance" "iac_test_instance" {
-  name    = "${var.project_name}-${var.environment}-instance"
-  image   = "r006-6f153a5d-6a9a-496d-8063-5c39932f6ded"
-  profile = "cx2-2x4"
+# Create a ssh keypair which will be used to provision code onto the system - and also access the VM for debug if needed.
+resource tls_private_key "ssh_key_keypair" {
+  algorithm = "RSA"
+  rsa_bits = "2048"
+}
 
-  primary_network_interface {
-    name            = "eth1"
-    subnet          = ibm_is_subnet.iac_test_subnet.id
-    security_groups = [ibm_is_security_group.iac_test_security_group.id]
-  }
-
-  vpc  = ibm_is_vpc.iac_test_vpc.id
-  zone = "us-south-1"
-  keys = [data.ibm_is_ssh_key.iac_test_key.id]
-
-  user_data = file("${path.module}/scripts/slave.sh")
-
-  tags = ["iac-${var.project_name}-${var.environment}"]
+# Create an public/private ssh key pair to be used to login to VMs
+resource ibm_is_ssh_key "public_key" {
+  name = "${var.project_name}-${var.environment}-public-key"
+  public_key = tls_private_key.ssh_key_keypair.public_key_openssh
 }

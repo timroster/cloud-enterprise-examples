@@ -17,10 +17,6 @@ output "output_vars" {
   value = data.ibm_schematics_output.iac-test-output.output_values
 }
 
-output "entrypoint" {
-  value = data.ibm_schematics_output.iac-test-output.output_values.entrypoint
-}
-
 output "ip_address" {
   value = data.ibm_schematics_output.iac-test-output.output_values.ip_address
 }
